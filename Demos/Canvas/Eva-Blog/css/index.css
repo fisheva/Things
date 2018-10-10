@@ -1,0 +1,151 @@
+/* ↓↓↓ 以下属于less库文件去除标签默认样式 */
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+}
+a {
+  display: block;
+  text-decoration: none;
+}
+p,
+dl,
+dd,
+body {
+  margin: 0;
+}
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+input {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+}
+input:focus {
+  outline: none;
+}
+button {
+  padding: 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+img {
+  vertical-align: top;
+  *border: none;
+}
+i {
+  font-style: normal;
+  display: block;
+  cursor: pointer;
+}
+b {
+  font-weight: normal;
+}
+em {
+  font-style: normal;
+}
+small {
+  font-size: 100%;
+}
+/* ↑↑↑ 以上属于less库文件去除标签默认样式 */
+body {
+  color: #1E1C24;
+  font-family: "Montserrat", "Arial";
+}
+.homepage {
+  height: 1800px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#EFF9F9), to(#FBF8F6));
+  background: -webkit-linear-gradient(#EFF9F9, #FBF8F6);
+  background: -o-linear-gradient(#EFF9F9, #FBF8F6);
+  background: linear-gradient(#EFF9F9, #FBF8F6);
+  *filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#EFF9F9, endColorstr=#FBF8F6);
+}
+.greet {
+  display: block;
+  height: 310px;
+  padding: 200px 0 0;
+  text-align: center;
+}
+.hello,
+.introduction {
+  font-size: 26px;
+  font-weight: bold;
+  line-height: 30px;
+}
+.name {
+  color: #90A6EF;
+  font-size: 90px;
+  font-weight: bold;
+  line-height: 96px;
+}
+#fish {
+  height: 1050px;
+}
+.try {
+  width: 0;
+  height: 0;
+  border-bottom: 180px solid red;
+  border-right: 103.923px solid blue;
+  border-left: 103.923px solid green;
+}
+.try2 {
+  margin: 100px 200px 0;
+  width: 180px;
+  height: 300px;
+  background: orange;
+  -webkit-transform: skew(40deg, 40deg);
+  -ms-transform: skew(40deg, 40deg);
+  transform: skew(40deg, 40deg);
+}
+.information {
+  font-size: 0;
+  text-align: center;
+}
+.contacts {
+  display: inline-block;
+  position: relative;
+}
+.portrait {
+  position: absolute;
+  top: 0;
+  left: -112px;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid #D8D8D8;
+}
+.portrait img {
+  width: 88px;
+}
+.describe {
+  display: inline-block;
+  font-size: 18px;
+  line-height: 22px;
+  padding-bottom: 6px;
+}
+.email {
+  font-weight: bold;
+}
+.email a {
+  color: inherit;
+  display: inline;
+}
+.links {
+  display: inline-block;
+  padding-top: 4px;
+}
+.link {
+  float: left;
+  margin-right: 12px;
+}
+
+/*# sourceMappingURL=index.css.map */

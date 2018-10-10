@@ -1,0 +1,218 @@
+/* ↓↓↓ 以下属于less库文件去除标签默认样式 */
+h1,
+h2,
+h3,
+h4,
+h5{
+    margin: 0;
+}
+a{
+    display: block;
+    text-decoration: none;
+}
+p,
+dl,
+dd,
+body{
+    margin: 0;
+}
+ul,
+ol{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+input{
+    margin: 0;
+    padding: 0;
+    border: none;
+    background: none;
+    &:focus{
+        outline: none;
+    }
+}
+button{
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+img{
+    vertical-align: top;
+    *border: none; //消除IE下的边框
+}
+i{
+    font-style: normal;
+    display: block;
+    cursor: pointer;
+}
+b{
+    font-weight: normal;
+}
+em{
+    font-style: normal;
+}
+small{
+    font-size: 100%;
+}
+/* ↑↑↑ 以上属于less库文件去除标签默认样式 */
+
+//常见矩形
+.square(@width, @height){
+    width: @width + 0;
+    height: @height + 0;
+}
+
+//行高与高度相等
+.lineHeight(@height){
+    line-height: @height + 0;
+    display: block;
+    height: @height + 0;
+}
+
+//圆, 设置了边框盒模型，圆的边框不影响半径
+.round(@radius){
+    box-sizing: border-box;
+    width: @radius*2 + 0;
+    height: @radius*2 + 0;
+    border-radius: @radius + 0;
+}
+
+//图文混合专用
+.noHeight(@width, @padding-top){
+    overflow: hidden;
+    width: @width + 0;
+    height: 0;
+    padding-top: @padding-top + 0;
+}
+
+//定位属性
+.top-left(@top, @left){
+    position: absolute;
+    top: @top + 0;
+    left: @left + 0;
+}
+
+.top-right(@top, @right){
+    position: absolute;
+    top: @top + 0;
+    right: @right + 0;
+}
+
+.bottom-right(@bottom, @right){
+    position: absolute;
+    right: @right + 0;
+    bottom: @bottom + 0;
+}
+
+.bottom-left(@bottom, @left){
+    position: absolute;
+    bottom: @bottom + 0;
+    left: @left + 0;
+}
+
+//元素hover旋转 action-time 为hover上去后元素的起始动作时间,restore-time是鼠标离开后元素的恢复时间.这里并没有给action-time附上单位s,是因为缩放倍数、XY位移的距离数 与 时间经常太接近,所以保留时间单位,避免混淆
+.rotate(@deg, @action-time){
+    //旋转
+    transition: all @action-time ease;
+    &:hover {
+        transform: rotate(calc(@deg + 0deg ));
+    }
+}
+
+//元素框内图片放大
+.zoom-img(@scale, @action-time){
+    overflow: hidden;
+    & img {
+        transition: all @action-time ease;
+        transform: scale(1);
+    }
+    &:hover img {
+        transform: scale(@scale);
+    }
+}
+
+//元素自身缩放
+.zoom-self(@scale, @action-time){
+    overflow: hidden;
+    transition: all @action-time ease;
+    transform: scale(1);
+    &:hover {
+        transform: scale(@scale);
+    }
+}
+
+//位移
+.move-x(@distance, @action-time){
+    transition: all @action-time ease;
+    &:hover {
+        transform: translateX(calc(@distance + 0px));
+    }
+}
+.move-y(@action-time, @distance){
+    transition: all @action-time ease;
+    &:hover {
+        transform: translateY(calc(@distance + 0px));
+    }
+}
+
+//hover渐显下拉框
+.pull-down(@top-after){
+    position: absolute;
+    //用负z-index隐藏元素的原因是 如果直接用display:none到block的变化,则opacity的变化完全不起作用,但IE下负z-index不能隐藏元素,所以只能用display:none到display:block.
+    z-index: -10;
+    //@top-after一般是相对定位的父级的底部, 反复测试后1秒内移动20px比较舒服
+    top: calc(@top-after - 20px);
+    display: none\9;
+    transition: opacity .5s ease, top 1s ease;
+    //反复尝试后 0.5秒渐显,1秒位移是感觉最舒服的组合,所以这里没把时间设为变量,简化纠结项
+    opacity: 0;
+    &:hover {
+        z-index: 10;
+        top: @top-after;
+        display: block\9;
+        opacity: 1;
+    }
+}
+
+//↓单独修改输入框内的placeholder文字的样式
+.placeHolder(@color,@opacity:1){
+    ::-webkit-input-placeholder { // WebKit, Blink, Edge
+        color: @color;
+        opacity: @opacity;
+    }
+    :-moz-placeholder { // Mozilla Firefox 4 to 18
+        color: @color;
+        opacity: @opacity;
+    }
+    ::-moz-placeholder { // Mozilla Firefox 19+
+        color: @color;
+        opacity: @opacity;
+    }
+    :-ms-input-placeholder { // Internet Explorer 10-11
+        color: @color;
+        opacity: @opacity;
+    }
+}
+
+//flex布局上下左右居中,注意X轴是space-around，而不是center，元素间距是自动平均分配的
+.flexSpaceAround(){
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+//flex布局全部居中，注意X轴是center，元素间距是需要自己设置的
+.flexSpaceUndefined(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+//文字不能被选中
+.selectLess(){
+    -webkit-user-select: none; //webkit浏览器
+       -moz-user-select: none; //火狐
+        -ms-user-select: none; //IE10
+            user-select: none;
+}
