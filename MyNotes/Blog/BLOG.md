@@ -1,6 +1,9 @@
 # Blog开发总结
 
 ## 待解决问题
+
+url(#fish-color .face)
+url()函数的参数类型? 参数可以填class吗? 可以填css包含选择器吗?
 ---
 
 ## 已解决问题
